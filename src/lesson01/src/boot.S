@@ -9,7 +9,8 @@ _start:
 	and	x0, x0,#0xFF		// Check processor id
 	cbz	x0, master		// Hang for all non-primary CPU
 
-	mov	x0, #1000
+	mov	x1, #1000
+	mul	x0, x1, x0
 	bl	delay
 	b	init_stack
 
@@ -22,14 +23,6 @@ wakeup_core:
 
 proc_hang:
 	b proc_hang
-
-wakeup_cores:
-	
-	bl	wakeup_core
-
-
-	ret
-	
 
 master:
 	adr	x0, bss_begin
