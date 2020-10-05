@@ -15,6 +15,15 @@
 
 #define SCTLR_VALUE_MMU_DISABLED	(SCTLR_RESERVED | SCTLR_EE_LITTLE_ENDIAN | SCTLR_I_CACHE_DISABLED | SCTLR_D_CACHE_DISABLED | SCTLR_MMU_DISABLED)
 
+
+
+// ***************************************
+// SCTLR_EL2, System Control Register (EL2), Page 2654 of AArch64-Reference-Manual.
+// ***************************************
+#define SCTLR2_VALUE_MMU_DISABLED	(SCTLR_RESERVED | SCTLR_EE_LITTLE_ENDIAN | SCTLR_I_CACHE_DISABLED | SCTLR_D_CACHE_DISABLED | SCTLR_MMU_DISABLED)
+
+
+
 // ***************************************
 // HCR_EL2, Hypervisor Configuration Register (EL2), Page 2487 of AArch64-Reference-Manual.
 // ***************************************
@@ -37,6 +46,7 @@
 
 #define SPSR_MASK_ALL 			(7 << 6)
 #define SPSR_EL1h			(5 << 0)
-#define SPSR_VALUE			(SPSR_MASK_ALL | SPSR_EL1h)
-
+#define SPSR_EL2h			(9 << 0)
+#define SPSR_EL1_VALUE			(SPSR_MASK_ALL | SPSR_EL1h)
+#define SPSR_EL2_VALUE			(SPSR_MASK_ALL | SPSR_EL2h)
 #endif
